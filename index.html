@@ -6,9 +6,19 @@
 </head>
 <body>
   <body ng-app="flapperNews" ng-controller="MainCtrl">
-    <div>
-      {{ test }}
+    <div ng-repeat="post in posts | orderBy: '-upvotes'">
+      <span ng-click="incrementUpvotes(post)">^</span>
+      <a href="{{ post.link }}" ng-show="post.link">
+        {{ post.title }}
+      </a>
+      <span ng-hide="post.link">{{ post.title }}</span>
+      - upvotes: {{ post.upvotes }}
     </div>
+    <form ng-submit="addPost()">
+      <input type="text" ng-model="title" placeholder="Title">
+      <input type="text" ng-model="link" placeholder="Link">
+      <button type="submit">Add post</button>
+    </form>
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
   <script src="app.js"></script>
