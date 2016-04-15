@@ -14,3 +14,12 @@
  *= require_tree .
  *= require_self
  */
+
+ .glyphicon-thumbs-up { cursor:pointer }
+ .posts span, .comments span {
+   font-size: 20px;
+   margin-left: 10px;
+ }
+ form {
+   margin-top: 30px;
+ }
