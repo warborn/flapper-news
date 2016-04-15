@@ -1,16 +1,16 @@
 class CommentsController < ApplicationController
 
   def create
-    post Post.find(params[:post_id])
+    post = Post.find(params[:post_id])
     comment = post.comments.create(comment_params)
-    respond_with post, comment
+    render json: comment
   end
 
   def upvote
     post = Post.find(params[:post_id])
-    post.comments.find(params[:id])
+    comment = post.comments.find(params[:id])
     comment.increment!(:upvotes)
-    respond_with post, comment
+    render json: comment
   end
 
   private
