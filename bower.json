@@ -1,0 +1,15 @@
+{
+  "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {
+    }
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      "angular": "1.5.4",
+      "angular-ui-router": " 0.2.18",
+      "bootstrap": "3.3.6"
+    }
+  }
+}
