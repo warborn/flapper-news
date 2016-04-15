@@ -1,5 +1,5 @@
 (function() {
-  var postsFactory = function() {
+  var postFactory = function() {
     return {
       posts: [{
         title: "Angular Rails",
@@ -11,5 +11,5 @@
   }
 
   angular.module('flapperNews')
-    .factory('posts', postsFactory);
+    .factory('Post', postFactory);
 })();
