@@ -16,7 +16,7 @@
         .then(function(response) {
           return response.data.post;
         });
-    }
+    };
 
     factory.create = function(post) {
       return $http.post('/posts', post)
@@ -29,6 +29,20 @@
       $http.put('/posts/' + post.id + '/upvote')
         .then(function() {
           post.upvotes += 1;
+      });
+    };
+
+    factory.createComment = function(post, comment) {
+      return $http.post('/posts/' + post.id + '/comments', comment)
+        .then(function(response) {
+          return response.data.comment;
+        });
+    };
+
+    factory.upvoteComment = function(post, comment) {
+      return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/upvote')
+        .then(function() {
+          comment.upvotes += 1;
       });
     }
 
