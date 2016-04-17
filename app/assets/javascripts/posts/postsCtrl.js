@@ -1,6 +1,6 @@
 (function() {
-  var postsCtrl = function($scope, $stateParams, Post) {
-    $scope.post = Post.posts[$stateParams.id];
+  var postsCtrl = function($scope, Post, currentPost) {
+    $scope.post = currentPost;
 
     $scope.addComment = function() {
       if(!$scope.body || $scope.body === '') { return; }
@@ -17,7 +17,7 @@
     }
   }
 
-  postsCtrl.$inject = ['$scope', '$stateParams', 'Post'];
+  postsCtrl.$inject = ['$scope', 'Post', 'currentPost'];
 
   angular.module('flapperNews')
     .controller('PostsCtrl', postsCtrl);

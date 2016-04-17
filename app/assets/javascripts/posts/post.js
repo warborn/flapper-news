@@ -3,22 +3,34 @@
   var postFactory = function($http) {
 
     var factory = {};
-    factory.posts = [];
 
     factory.getAll = function() {
       return $http.get('/posts')
         .then(function(response) {
-          angular.copy(response.data.posts, factory.posts);
-          // factory.posts = response.data.posts;
+          return response.data.posts;
       });
     };
+
+    factory.get = function(id) {
+      return $http.get('/posts/' + id)
+        .then(function(response) {
+          return response.data.post;
+        });
+    }
 
     factory.create = function(post) {
       return $http.post('/posts', post)
         .then(function(response) {
-          factory.posts.push(response.data.post);
+          return response.data.post;
       });
     };
+
+    factory.upvote = function(post) {
+      $http.put('/posts/' + post.id + '/upvote')
+        .then(function() {
+          post.upvotes += 1;
+      });
+    }
 
     return factory;
   };
