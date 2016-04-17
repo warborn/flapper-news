@@ -9,6 +9,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "bower-rails", "~> 0.10.0"
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
+gem 'angular_rails_csrf'
 
 group :development, :test do
   gem 'byebug'
