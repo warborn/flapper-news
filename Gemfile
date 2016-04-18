@@ -10,6 +10,7 @@ gem "bower-rails", "~> 0.10.0"
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
 gem 'angular_rails_csrf'
+gem 'devise', '~> 3.4.0'
 
 group :development, :test do
   gem 'byebug'
