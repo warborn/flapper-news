@@ -7,21 +7,21 @@
     factory.getAll = function() {
       return $http.get('/posts')
         .then(function(response) {
-          return response.data.posts;
+          return response.data;
       });
     };
 
     factory.get = function(id) {
       return $http.get('/posts/' + id)
         .then(function(response) {
-          return response.data.post;
+          return response.data;
         });
     };
 
     factory.create = function(post) {
       return $http.post('/posts', post)
         .then(function(response) {
-          return response.data.post;
+          return response.data;
       });
     };
 
@@ -35,7 +35,7 @@
     factory.createComment = function(post, comment) {
       return $http.post('/posts/' + post.id + '/comments', comment)
         .then(function(response) {
-          return response.data.comment;
+          return response.data;
         });
     };
 

@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     render 'layouts/application'
   end
 
+  def default_serializer_options
+    { root: false }
+  end
+
   private
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :username
