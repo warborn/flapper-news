@@ -2,6 +2,10 @@
 
 (function() {
   var authCtrl = function($scope, $state, Auth) {
+    if($state.error) {
+      console.log($state.error);
+      $state.error = null;
+    }
     $scope.login = function() {
       Auth.login($scope.user)
         .then(function() {
@@ -15,7 +19,9 @@
       Auth.register($scope.user)
         .then(function() {
           $state.go('home');
-        });
+      }).catch(function(response) {
+        console.log(response.data)
+      });
     };
   };
 

@@ -55,9 +55,9 @@ angular.module('flapperNews', ['ui.router', 'templates', 'Devise'])
 }])
 .run(function($rootScope, $state) {
   $rootScope.$on('$stateChangeError', function(e, toState, toParams, fromState, fromParams, error){
-    console.log(error);
     if(error === 'Not Authorized'){
-        $state.go('login');
+      $state.error = { message: 'Primero tienes que iniciar sesion' };
+      $state.go('login', {}, { reload: true });
     }
   });
 });
